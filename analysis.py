@@ -13,4 +13,6 @@ headers = {'content-type': 'application/json'}
 
 response = requests.request("POST", url, data=json.dumps(x), headers=headers)
 
-print(response.text)
+y = json.loads(response.text)
+
+print(y['confidence'])

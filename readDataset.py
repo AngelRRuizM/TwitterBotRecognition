@@ -66,7 +66,7 @@ def getClass(line):
     i = length - 1
     for c in line:
         if line[i] == ',':
-            return line[i + 1 : length - 1]
+            return line[i + 1 : length]
         i = i - 1
 
 def getTweetTrain(line):
@@ -80,6 +80,3 @@ def getTweetTrain(line):
 def invalidDataSet():
     print("The given DataSet is invalid or inexistant")
     return None
-
-
-print(getCleanDataSet("DataSets/ex.csv"))

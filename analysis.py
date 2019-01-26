@@ -1,5 +1,4 @@
 import sys
-import meaningcloud
 import requests
 import json
 

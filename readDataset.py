@@ -66,7 +66,7 @@ def getClass(line):
     i = length - 1
     for c in line:
         if line[i] == ',':
-            return line[i + 1 : length]
+            return line[i + 1 : length - 1]
         i = i - 1
 
 def getTweetTrain(line):

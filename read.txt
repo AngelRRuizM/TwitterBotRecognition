@@ -1,1 +1,0 @@
-{'list': [{'agreement': u'AGREEMENT', 'confidence': u'100', 'expectedClass': '1', 'score_tag': u'P', 'irony': u'NONIRONIC', 'tweet': 'i remember in 7th grade we used to fight the 8th graders at recess . dem were the days man lol', 'subjectivity': u'SUBJECTIVE', 'id': 1, 'class': '-1'}]}

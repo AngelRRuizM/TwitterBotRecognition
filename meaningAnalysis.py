@@ -22,7 +22,7 @@ def getAnalysis(fileName):
     i = 0
     for tweet in jList:
         aList['list'].append(analyse(tweet, i))
-        time.sleep(3)
+        time.sleep(.2)
         i = i + 1
 
     return(aList)
@@ -65,5 +65,3 @@ def analyse(tweet, i):
         z['score_tag'] = y['score_tag']
 
     return z
-
-print(getAnalysis('./DataSets/ex.csv'))

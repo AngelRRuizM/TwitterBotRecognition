@@ -3,23 +3,27 @@ import json
 
 
 
-def getCleanDataSet(dataSet):
+def getCleanDataSet(dataSet, x):
     if os.path.exists(dataSet) == False:
+        print(1)
         invalidDataSet()
     
     if os.path.isfile(dataSet) == False:
+        print(2)
         invalidDataSet()
     
     dataSetFile = open(dataSet, 'r')
     firstString = dataSetFile.readline()
-    if firstString == "Id,Tweet\n" :
+    if firstString == "Id,Tweet\n" or x == 1:
         return test(dataSetFile)
     
     else:
-        if firstString == "Tweet,Class\n" :
+        if firstString == "Tweet,Class\n" or x == 2:
             return train(dataSetFile)
         
         else:
+            print(firstString + "lol")
+        
             return invalidDataSet()
         
 

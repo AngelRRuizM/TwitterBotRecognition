@@ -13,16 +13,17 @@ headers = {'content-type': 'application/json'}
 failed = 0
 lastFailedId = 0
 
-def getAnalysis(fileName):
+def getAnalysis(fileName, x):
 
-    readDataSet = readDataset.getCleanDataSet(fileName)
+    readDataSet = readDataset.getCleanDataSet(fileName, x)
 
     jList = readDataSet['list']
     aList = {'list': []}
     i = 0
     for tweet in jList:
         aList['list'].append(analyse(tweet, i))
-        time.sleep(.2)
+        print(i)
+        time.sleep(.5)
         i = i + 1
 
     return(aList)
@@ -35,8 +36,6 @@ def analyse(tweet, i):
 
     response = requests.request("POST", url, data=json.dumps(x), headers=headers)
 
-    y = json.loads(response.text)
-
     z = {'expectedClass': tweet['expectedClass'], 
     'tweet': tweet['tweet'], 
     'id': tweet['id'], 
@@ -46,6 +45,13 @@ def analyse(tweet, i):
     'agreement': None,
     'subjectivity': None,
     'score_tag': None}
+
+    if response.status_code >=300:
+        return z
+
+    y = json.loads(response.text)
+
+    
 
     if 'confidence' in y:
         z['confidence'] = y['confidence']
